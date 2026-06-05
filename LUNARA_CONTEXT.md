@@ -380,11 +380,14 @@ Plans are enforced automatically via cron (`*/5 * * * *` on hmatamoros):
 /home/amatamoros/lunara/enforce_plans.py
 ```
 
-| Plan | wizard_bundle_id | Streams | Bitrate | Downloads |
-|---|---|---|---|---|
-| Basic | 1 | 1 | 8 Mbps | No |
-| Standard | 2 | 2 | 25 Mbps | No |
-| Premium | 3 | 4 | Unlimited | Yes |
+| Plan | wizard_bundle_id | Streams | Bitrate | Downloads | Expiry |
+|---|---|---|---|---|---|
+| Basic | 1 | 1 | 8 Mbps | No | Per billing cycle |
+| Standard | 2 | 2 | 25 Mbps | No | Per billing cycle |
+| Premium | 3 | 4 | Unlimited | Yes | Per billing cycle |
+| Basic Unlimited | 4 | 1 | 8 Mbps | No | Never — manual invite only |
+
+**Basic Unlimited** — tier para invitados especiales, familia o promos sin fecha de vencimiento. No pasa por Stripe. Mismos límites técnicos que Basic. Para crear invitación de este tipo usar `wizard_bundle_id=4` y `duration=36500` (100 años) via API.
 
 - Users with no plan in Wizarr get **Basic as default**
 - Admin users (`IsAdministrator: True`) are always skipped
