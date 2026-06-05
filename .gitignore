@@ -1,0 +1,6 @@
+lunara-web/
+*.db
+*.sqlite
+.env
+.env.*
+*.log
