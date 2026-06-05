@@ -18,6 +18,11 @@
 **Retention:** 7 daily / 4 weekly / 12 monthly
 **Verify status:** http://192.168.1.200 (homepage widget) or http://192.168.1.200:9898
 
+> ⚠️ **Important:** Backrest runs in Docker. Only paths explicitly mounted as volumes are backed up.
+> `~/lunara/` is mounted as `/data/lunara:ro` inside the Backrest container.
+> If you add new data directories to back up, you must add them as volume mounts in
+> `~/ha-project/docker-compose.yml` AND update the path in `backrest/config/config.json`.
+
 ---
 
 ## Scenario 1 — Server still running, single service down
